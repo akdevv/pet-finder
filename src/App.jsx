@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 import router from "./routes/Router";
 import { RouterProvider } from "react-router-dom";
@@ -9,7 +9,7 @@ function App() {
 		<>
 			<Navbar />
 			<RouterProvider router={router} />
-			<Header />
+			{/* <Header /> */}
 		</>
 	);
 }

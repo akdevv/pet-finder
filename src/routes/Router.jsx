@@ -1,21 +1,30 @@
+import Home from "../pages/Home";
+import About from "../pages/About";
+import ShowPet from "../pages/ShowPet";
+import ShowPets from "../pages/ShowPets";
+import ReportPet from "../pages/ReportPet";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <h1>home</h1>,
+		element: <Home />,
 	},
 	{
 		path: "/pets",
-		element: <h1>find your lost pets</h1>,
+		element: <ShowPets />,
 	},
 	{
 		path: "/pets/new",
-		element: <h1>report your lost pets</h1>,
+		element: <ReportPet />,
+	},
+	{
+		path: "/pets/:petId",
+		element: <ShowPet />,
 	},
 	{
 		path: "/about",
-		element: <h1>about us page</h1>,
+		element: <About />,
 	},
 ]);
 
