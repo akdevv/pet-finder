@@ -7,7 +7,7 @@ import { RouterProvider } from "react-router-dom";
 function App() {
 	return (
 		<>
-			<Navbar />
+			{/* <Navbar /> */}
 			<RouterProvider router={router} />
 			{/* <Header /> */}
 		</>
