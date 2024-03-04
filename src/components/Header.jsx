@@ -8,7 +8,7 @@ function Header() {
 			</div>
 			<div className="hidden md:block w-1/2 px-6">
 				<img
-					src="public/dog-cover-header.png"
+					src="/dog-cover-header.png"
 					className="w-full h-full object-cover"
 					alt="dog"
 				/>
