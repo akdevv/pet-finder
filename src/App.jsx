@@ -4,10 +4,12 @@ import { RouterProvider } from "react-router-dom";
 
 function App() {
 	return (
-		<>
-			<RouterProvider router={router} />
+		<div className="flex flex-col min-h-screen">
+			<div className="flex-grow">
+				<RouterProvider router={router} />
+			</div>
 			<Footer />
-		</>
+		</div>
 	);
 }
 
