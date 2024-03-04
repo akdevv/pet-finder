@@ -15,8 +15,8 @@ function Navbar() {
 		<>
 			<header className="sm:px-8 px-4 py-4 z-10 w-full">
 				<nav className="flex justify-between items-center max-container">
-					<Link to="/" className="text-3xl font-bold">
-						Logo
+					<Link to="/" className="text-3xl font-bold text-orange-500">
+						Pet Finder
 					</Link>
 					<ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
 						{navLinks.map((item) => (

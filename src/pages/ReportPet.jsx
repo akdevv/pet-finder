@@ -175,7 +175,7 @@ function ReportPet() {
 					{/* Submit Button */}
 					<button
 						type="submit"
-						className="bg-blue-500 text-white hover:bg-blue-600 py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2"
+						className="bg-orange-500 text-white hover:bg-orange-600 py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2"
 					>
 						Submit
 					</button>

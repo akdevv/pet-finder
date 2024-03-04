@@ -87,3 +87,14 @@ function ShowPets() {
 	);
 }
 export default ShowPets;
+
+
+// const [demo1, setDemo1] = useState([]);
+// 	async function getNames() {
+// 		const { data: demo1 } = await supabase.from("demo1").select("name");
+// 		setDemo1(demo1.map((item) => item.name));
+// 	}
+
+// 	useEffect(() => {
+// 		getNames();
+// 	}, []);
