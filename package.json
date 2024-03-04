@@ -12,6 +12,9 @@
 	"dependencies": {
 		"@headlessui/react": "^1.7.18",
 		"@heroicons/react": "^2.1.1",
+		"@prisma/client": "^5.10.2",
+		"@supabase/supabase-js": "^2.39.7",
+		"prisma": "^5.10.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^5.0.1",
