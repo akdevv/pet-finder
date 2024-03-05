@@ -1,7 +1,14 @@
+import NavLink from "./NavLink";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, Outlet } from "react-router-dom";
+import {
+	SignedIn,
+	SignedOut,
+	SignInButton,
+	UserButton,
+} from "@clerk/clerk-react";
 
 function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +20,7 @@ function Navbar() {
 	];
 	return (
 		<>
-			<header className="sm:px-8 px-4 py-4 z-10 w-full">
+			<header className="sm:px-8 px-4 py-4 z-10 w-full bg-gray-200">
 				<nav className="flex justify-between items-center max-container">
 					<Link to="/" className="text-3xl font-bold text-orange-500">
 						Pet Finder
@@ -21,19 +28,19 @@ function Navbar() {
 					<ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
 						{navLinks.map((item) => (
 							<li key={item.label}>
-								<Link
-									to={item.to}
-									className="font-montserrat leading-normal text-lg text-slate-gray"
-								>
-									{item.label}
-								</Link>
+								<NavLink to={item.to} label={item.label} />
 							</li>
 						))}
 					</ul>
-					<div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24">
-						<Link to="/">Sign in</Link>
-						<span>/</span>
-						<Link to="/">Explore now</Link>
+					<div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24 hover:text-orange-500 transition-colors duration-300 ease-in-out">
+						<SignedOut>
+							<SignInButton />
+						</SignedOut>
+						<SignedIn>
+							<div className="border-2 border-gray-900 rounded-full">
+								<UserButton />
+							</div>
+						</SignedIn>
 					</div>
 					<div
 						className="hidden max-lg:block cursor-pointer"
@@ -59,12 +66,7 @@ function Navbar() {
 						<ul className=" lg:hidden flex flex-col items-center justify-center h-full ">
 							{navLinks.map((item) => (
 								<li key={item.label}>
-									<Link
-										to={item.to}
-										className="font-montserrat leading-normal text-lg text-slate-gray"
-									>
-										{item.label}
-									</Link>
+									<NavLink to={item.to} label={item.label} />
 								</li>
 							))}
 						</ul>
