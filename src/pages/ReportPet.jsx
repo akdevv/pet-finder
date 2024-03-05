@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "../utils/supabase";
 
 function ReportPet() {
 	const [formData, setFormData] = useState({
@@ -19,9 +20,23 @@ function ReportPet() {
 		setFormData({ ...formData, [name]: value });
 	};
 
-	const handleSubmit = (e) => {
+	const handleUpload = async (e) => {
 		e.preventDefault();
-		console.log("Form Data:", formData);
+		try {
+			// Upload formData to Supabase database
+			const { data, error } = await supabase
+				.from("pets")
+				.insert([{ ...formData }]);
+
+			if (error) {
+				console.error("Error uploading pet:", error);
+			} else {
+				console.log("Pet uploaded successfully:", data);
+				handleCancel();
+			}
+		} catch (error) {
+			console.error("Error uploading pet:", error);
+		}
 	};
 
 	const handleCancel = () => {
@@ -41,7 +56,7 @@ function ReportPet() {
 
 	return (
 		<div className="container mx-auto w-full sm:w-3/4 p-5 bg-white mb-20">
-			<form onSubmit={handleSubmit} className="space-y-6">
+			<form onSubmit={handleUpload} className="space-y-6">
 				<h1 className="text-3xl font-bold text-gray-700 text-center">
 					Report a Lost Pet
 				</h1>
