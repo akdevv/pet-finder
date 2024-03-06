@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabase";
+import CloudinaryUpload from "../utils/CloudinaryUpload";
 
 function ReportPet() {
+	const [petImages, setPetImages] = useState([]);
 	const [formData, setFormData] = useState({
 		petName: "",
 		petAge: "",
 		petGender: "f",
 		petBreed: "",
-		petPhoto: "",
 		lastSeenLocation: "",
 		description: "",
 		contactName: "",
@@ -20,13 +21,21 @@ function ReportPet() {
 		setFormData({ ...formData, [name]: value });
 	};
 
+	const handleImageUpload = (e) => {
+		setPetImages([...e.target.files]);
+	};
+
 	const handleUpload = async (e) => {
 		e.preventDefault();
+
 		try {
+			// Upload pet images to Cloudinary
+			const uploadedUrls = await CloudinaryUpload(petImages);
+
 			// Upload formData to Supabase database
 			const { data, error } = await supabase
 				.from("pets")
-				.insert([{ ...formData }]);
+				.insert([{ ...formData, petPhoto: uploadedUrls }]);
 
 			if (error) {
 				console.error("Error uploading pet:", error);
@@ -45,7 +54,6 @@ function ReportPet() {
 			petAge: "",
 			petGender: "f",
 			petBreed: "",
-			petPhoto: "",
 			lastSeenLocation: "",
 			description: "",
 			contactName: "",
@@ -112,7 +120,7 @@ function ReportPet() {
 						type="file"
 						name="petPhoto"
 						value={formData.petPhoto}
-						onChange={handleChange}
+						onChange={handleImageUpload}
 						multiple
 					/>
 
