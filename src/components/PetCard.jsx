@@ -1,6 +1,11 @@
 function PetCard({ pet }) {
 	return (
-		<div className="w-96 md:w-64 h-50 rounded-lg overflow-hidden shadow-md bg-white">
+		<div
+			className="w-96 md:w-64 h-50 rounded-lg overflow-hidden shadow-md bg-white"
+			onClick={() => {
+				console.log("Image Clicked");
+			}}
+		>
 			<img
 				src={
 					pet.petPhoto
