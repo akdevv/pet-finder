@@ -2,7 +2,11 @@ function PetCard({ pet }) {
 	return (
 		<div className="w-96 md:w-64 h-50 rounded-lg overflow-hidden shadow-md bg-white">
 			<img
-				src={pet.petPhoto}
+				src={
+					pet.petPhoto
+						? pet.petPhoto[0]
+						: "https://via.placeholder.com/300"
+				}
 				alt="Pet Image"
 				className="w-full h-48 object-cover"
 			/>
