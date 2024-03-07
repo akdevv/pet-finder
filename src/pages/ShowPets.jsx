@@ -26,7 +26,7 @@ function ShowPets() {
 	}
 
 	return (
-		<div className="container mx-auto p-4">
+		<div className="container mt-3 p-4">
 			<div className="flex flex-wrap justify-center gap-4">
 				{pets.map((pet) => (
 					<PetCard pet={pet} key={pet.id} />

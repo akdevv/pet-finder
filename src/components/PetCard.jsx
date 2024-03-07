@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function PetCard({ pet }) {
+	const navigator = useNavigate();
+	const handleRedirect = (petId) => {
+		navigator(`/pets/${petId}`);
+	};
+
 	return (
 		<div
-			className="w-96 md:w-64 h-50 rounded-lg overflow-hidden shadow-md bg-white"
-			onClick={() => {
-				console.log("Image Clicked");
-			}}
+			className="w-96 md:w-64 h-50 rounded-lg overflow-hidden shadow-md bg-white cursor-pointer"
+			onClick={() => handleRedirect(pet.id)}
 		>
 			<img
 				src={
