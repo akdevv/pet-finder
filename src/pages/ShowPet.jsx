@@ -1,6 +1,7 @@
+import { Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { fetchPet } from "../api/supabaseService";
 import { useParams } from "react-router-dom";
+import { fetchPet } from "../api/supabaseService";
 
 function ShowPet() {
 	const [pet, setPet] = useState(null);
@@ -16,7 +17,13 @@ function ShowPet() {
 		});
 	}, [petId]);
 
-	if (!pet) return <div>Loading pet details...</div>;
+	if (!pet) {
+		return (
+			<div className="flex flex-col text-center min-h-dvh justify-center">
+				<Spinner size="lg" color="warning" />
+			</div>
+		);
+	}
 
 	return (
 		<div className="container mx-auto p-6">
@@ -51,7 +58,9 @@ function ShowPet() {
 
 					<hr className="my-4" />
 
-					<h3 className="text-xl font-semibold">Owner's Details</h3>
+					<h3 className="text-xl font-semibold">
+						Owner&apos;s Details
+					</h3>
 					<p>
 						<strong>Name:</strong> {pet.contactName}
 					</p>

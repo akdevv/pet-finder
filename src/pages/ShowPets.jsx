@@ -1,3 +1,4 @@
+import { Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import PetCard from "../components/PetCard";
 import { fetchPets } from "../api/supabaseService";
@@ -15,6 +16,14 @@ function ShowPets() {
 
 		getData();
 	}, []);
+
+	if (pets.length === 0) {
+		return (
+			<div className="flex flex-col text-center min-h-dvh justify-center">
+				<Spinner size="lg" />
+			</div>
+		);
+	}
 
 	return (
 		<div className="container mx-auto p-4">
