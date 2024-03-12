@@ -13,7 +13,7 @@ function Header() {
 					Welcome to Pet Finder
 				</h1>
 				<button
-					className="mt-4 bg-white text-orange-500 font-bold py-1 px-3 text-md rounded-full hover:bg-gray-100 transition duration-300"
+					className="mt-4 bg-white text-orange-500 font-bold py-1 px-3 text-sm rounded-full hover:bg-gray-100 transition duration-300 shadow-md"
 					onClick={handleRedirect}
 				>
 					About Us
