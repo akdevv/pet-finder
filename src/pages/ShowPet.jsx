@@ -32,7 +32,7 @@ function ShowPet() {
 					<img
 						src={pet.petPhoto[0]}
 						alt={pet.petName}
-						className="w-full h-auto rounded-lg"
+						className="w-full h-96 rounded-lg over transition-transform duration-300 hover:scale-105"
 					/>
 				</div>
 
@@ -80,5 +80,3 @@ function ShowPet() {
 	);
 }
 export default ShowPet;
-
-// cc9f2843-6e37-4803-86d3-df7384b8fbfb

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchPet } from "../api/supabaseService";
 
-function ShowPet() {
+function ShopPet() {
 	const [pet, setPet] = useState(null);
 	const { petId } = useParams();
 
@@ -32,7 +32,7 @@ function ShowPet() {
 					<img
 						src={pet.petPhoto[0]}
 						alt={pet.petName}
-						className="w-full h-auto rounded-lg"
+						className="w-full h-96 rounded-lg over transition-transform duration-300 hover:scale-105"
 					/>
 				</div>
 
@@ -50,16 +50,13 @@ function ShowPet() {
 						<strong>Breed:</strong> {pet.petBreed}
 					</p>
 					<p>
-						<strong>Last Seen:</strong> {pet.lastSeenLocation}
-					</p>
-					<p>
 						<strong>Description:</strong> {pet.description}
 					</p>
 
 					<hr className="my-4" />
 
 					<h3 className="text-xl font-semibold">
-						Owner&apos;s Details
+						Seller&apos;s Details
 					</h3>
 					<p>
 						<strong>Name:</strong> {pet.contactName}
@@ -72,13 +69,12 @@ function ShowPet() {
 					</p>
 
 					<button className="bg-orange-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-orange-600">
-						Contact Owner
+						Buy Now
 					</button>
 				</div>
 			</div>
 		</div>
 	);
 }
-export default ShowPet;
 
-// cc9f2843-6e37-4803-86d3-df7384b8fbfb
+export default ShopPet;

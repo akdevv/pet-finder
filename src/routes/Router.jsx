@@ -1,6 +1,7 @@
 import Home from "../pages/Home";
 import About from "../pages/About";
 import ShowPet from "../pages/ShowPet";
+import ShopPet from "../pages/ShopPet";
 import ShowPets from "../pages/ShowPets";
 import ShopPets from "../pages/ShopPets";
 import Navbar from "../components/Navbar";
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/shop/:petId",
-				element: <ShowPet />,
+				element: <ShopPet />,
 			},
 			{
 				path: "/pets/new",
