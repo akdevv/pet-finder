@@ -17,7 +17,6 @@ function Navbar() {
 		{ to: "/pets", label: "Find" },
 		{ to: "/shop", label: "Buy" },
 		{ to: "/pets/new", label: "Report" },
-		{ to: "/about", label: "About Us" },
 	];
 	return (
 		<>
